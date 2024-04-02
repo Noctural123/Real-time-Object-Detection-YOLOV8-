@@ -1,10 +1,16 @@
+# Note: If on mac, run 'unalias python' first for interpreter to point to the correct path
 from ultralytics import YOLO
+
+print("I'm Running")
+
+#"/Users/AnNguyen/Desktop/YOLOV8/runs/detect/train/weights/best.pt" MAC
+#"C:\\Users\\Lance\\Desktop\\YOLOV8\\runs\\detect\\train\\weights\\best.pt" PC
 
 # Replace model with path to the fine-tuned model trained on the
 # 'coco128' dataset
-model = YOLO("C:\\Users\\Lance\\Desktop\\YOLOV8\\runs\\detect\\train\\weights\\best.pt") 
+model = YOLO("/Users/AnNguyen/Desktop/YOLOV8/runs/detect/train/weights/best.pt")
 
 # Use the fine-tuned model for real-time detection
-results = model.predict(source=0, show=True)
+results = model.predict(source="0",show = True)
 
 print(results)
