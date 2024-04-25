@@ -1,12 +1,11 @@
 from ultralytics import YOLO
 
-# Load the pretrained YOLOv8n model
-model = YOLO("yolov8n.pt")
+# Load a model
+model = YOLO("runs\\detect\\train\\weights\\best.pt")  # load a pretrained model (recommended for training)
 
-# Fine-tune the model on your custom dataset
-model.train(data="coco128.yaml")
+# Train the model
+results = model.train(data='SKU-110K.yaml', epochs=100, imgsz=640)
 
-# Use the fine-tuned model for real-time detection
-results = model.predict(source=0, show=True)
+results = model.predict(source="0", show=True)
 
 print(results)
